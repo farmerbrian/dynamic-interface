@@ -1,12 +1,13 @@
 import './style.css';
 import { onLoad } from './onload.js';
-import { homePage } from './home.js';
+import { homePage, homeSlider } from './home.js';
 import { contactPage } from './contact.js';
 import { menuPage } from './menu.js';
 console.log('woohoo, you are inside index.js');
 
 onLoad();
 homePage();
+homeSlider();
 
 const menuDiv = document.getElementById('dropdown');
 const menuList = document.querySelector('.dropdown-content');
