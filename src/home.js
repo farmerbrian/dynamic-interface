@@ -31,13 +31,15 @@ const homePage = () => {
 };
 
 function homeSlider() {
+	// Set the default slide on page load
 	let currentIndex = 1;
 
+	// Automatically advance slides after 5 seconds
 	let timerInterval = setInterval(slideTimer, 5000);
 
+	// Start the slider over at the beginning once it automatically advances to the end.
 	function slideTimer() {
-		if (currentIndex < 3) {
-			currentIndex++;
+		if (currentIndex < 4) {
 			setSlides(1);
 		} else {
 			currentIndex = 1;
@@ -45,9 +47,21 @@ function homeSlider() {
 		}
 	}
 
+	//grab forward and backward buttons
 	const prevBtn = document.querySelector('.btn-previous');
 	const nextBtn = document.querySelector('.btn-next');
 
+	// Event handlers for navigation underneath slides
+	const navButtons = document.querySelectorAll('.nav-circle');
+	navButtons.forEach((button) => {
+		button.addEventListener('click', (event) => {
+			selectSlide(button.id);
+			currentIndex = button.id;
+			displaySlides(currentIndex);
+		});
+	});
+
+	// logic to decide which direction to advance to the next slide
 	function setSlides(num) {
 		currentIndex = currentIndex + num;
 		displaySlides(currentIndex);
@@ -63,17 +77,18 @@ function homeSlider() {
 			currentIndex = slides.length;
 		}
 		for (x = 0; x < slides.length; x++) {
-			// slides[x].style.display = 'none';
 			slides[x].classList.remove('show');
 			slides[x].classList.add('hide');
 		}
-		// slides[currentIndex - 1].style.display = 'block';
 		slides[currentIndex - 1].classList.remove('hide');
 		slides[currentIndex - 1].classList.add('show');
+		selectSlide(currentIndex);
 	}
 
+	// Start the slider on page load
 	displaySlides(currentIndex);
 
+	// Event handlers for forward and backward buttons
 	prevBtn.addEventListener('click', function () {
 		setSlides(-1);
 	});
@@ -82,17 +97,12 @@ function homeSlider() {
 		setSlides(1);
 	});
 
-	const navButtons = document.querySelectorAll('.nav-circle');
-	navButtons.forEach((button) => {
-		// button.classList.remove('selected');
-		button.addEventListener('click', (event) => {
-			button.classList.add('selected');
-			selectSlide(button.id);
+	// Logic for manually selecting a slide
+	function selectSlide(slideId) {
+		navButtons.forEach((buttonClass) => {
+			buttonClass.classList.remove('selected');
 		});
-	});
-
-	function selectSlide(id) {
-		console.log(id);
+		document.getElementById(slideId).classList.add('selected');
 	}
 }
 

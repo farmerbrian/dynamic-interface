@@ -9,6 +9,7 @@ body {
 
  a {
   color:lightgray;
+  cursor: pointer;
  }
 
  h1 {
@@ -23,6 +24,10 @@ body {
  h3 {
   font-size: 18px;
  }
+
+#menu h2 {
+  cursor: pointer;
+}
 
  #footer {
   position:fixed;
@@ -111,29 +116,30 @@ body {
   color: black;
  }
 
- /* home page */
- #home-container {
+/* home page */
+#home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 300px;
- }
+}
 
 
 
- .slider-img {
-  width: 60vw;
+.slider-img {
+  display:block;
+  width: 700px;
   height: auto;
-  margin-left: 20vw;
+  margin: auto;
   text-align: center;
   transition: 0.6s ease-in-out;
- }
+}
 
- img.show  {
-opacity: 1;
-z-index: 1;
-transition-delay: 0ms;
+img.show  {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
 }
 
 img.hide  {
@@ -144,24 +150,29 @@ img.hide  {
   transition-delay: 200ms;
 }
 
+
 .circle-btns {
   display: flex;
   flex-direction: row;
+  /* JUSTIFY CONTENT MAKES BUTTONS BREAK (UNCLICKABLE)!?!?! AND I DON'T KNOW WHY. */
   justify-content: center;
+  gap: 2px;
 }
 
 .nav-circle {
   width: 1em;
   height: 1em;
+  margin: 2px;
+  padding: 2px;
   border-radius: 100%;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.5);
   border-color: white;
   box-shadow: none;
 }
 
-.nav-circle .selected {
-  background-color: white;
+.selected {
+  width: 1.5em;
+  height: 1.5em;
 }
 
  .slider-btn {
