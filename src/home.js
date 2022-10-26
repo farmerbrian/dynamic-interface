@@ -29,10 +29,10 @@ const homePage = () => {
 	const homeBtn = document.getElementById('home-btn');
 	homeBtn.classList.add('selected');
 };
+let currentIndex = 1;
 
 function homeSlider() {
 	// Set the default slide on page load
-	let currentIndex = 1;
 
 	// Automatically advance slides after 5 seconds
 	let timerInterval = setInterval(slideTimer, 5000);
@@ -108,3 +108,4 @@ function homeSlider() {
 
 export { homePage };
 export { homeSlider };
+export { currentIndex };

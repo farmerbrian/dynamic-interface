@@ -29,6 +29,12 @@ body {
   cursor: pointer;
 }
 
+.hamburger-icon {
+  height: 40px;
+  width: auto;
+  filter: white;
+}
+
  #footer {
   position:fixed;
   left:20px;
@@ -38,10 +44,15 @@ body {
   text-align: center;
  }
 
+.mobile-menu {
+  position: absolute;
+}
+
  #menu {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
  }
 
  .menu-item {
@@ -112,7 +123,11 @@ body {
 	overflow: hidden;
  }
 
- .dropdown-content a {
+ .dropdown-content a{
+  color: black;
+ }
+
+ .dropdown-content h2{
   color: black;
  }
 
